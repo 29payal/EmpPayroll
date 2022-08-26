@@ -20,12 +20,16 @@ namespace EmployeePayroll
             //Console.WriteLine(Random.Next(10));//0-9
             // Console.WriteLine(random.Next(10,20));//10-19
             //Console.WriteLine(random.NextDouble());//0.0-1.0
-            Console.WriteLine("Choose option\n 1. Check absent present");
+            Console.WriteLine("Choose option\n 1. Check absent present\t 2. Daily emp wage");
             int option=Convert.ToInt32(Console.ReadLine());
              switch(option)
             {             
-                case 1:EmployeePresentAbsent.EmployeeAttenanceCheck();
+                case 1:
+                    EmployeePresentAbsent.EmployeeAttenanceCheck();
                        break;
+                case 2:
+                    DailyWage.CalculateDailyWage();
+                    break;
                 default:
                     Console.WriteLine("Entered wrong choice");
                     break;
