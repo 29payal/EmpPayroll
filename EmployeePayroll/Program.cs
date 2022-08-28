@@ -8,19 +8,7 @@ namespace EmployeePayroll
         {
 
             Console.WriteLine("Welcome to Employee wage");
-            //if(condition)
-            //{
-
-            //}
-            //else
-            //{
-
-            //}
-            // Random random = new Random();
-            //Console.WriteLine(Random.Next(10));//0-9
-            // Console.WriteLine(random.Next(10,20));//10-19
-            //Console.WriteLine(random.NextDouble());//0.0-1.0
-            Console.WriteLine("Choose option\n 1. Check absent present\t 2. Daily emp wage\t 3.Part time Wages\t 4.Parttime Wage SwitchCase\t 5. Emp wage for month ");
+            Console.WriteLine("Choose option\n 1. Check absent present\t 2. Daily emp wage\t 3.Part time Wages\t 4.Parttime Wage SwitchCase\t 5. Emp wage for month\t 6. Num of working days or totalworkinghrs for a month ");
             int option=Convert.ToInt32(Console.ReadLine());
              switch(option)
             {             
@@ -38,6 +26,9 @@ namespace EmployeePayroll
                     break;
                 case 5:
                     WageForMonth.CalculateWageForMonth();
+                    break;
+                case 6:
+                    HrsOrDaysForAMonth.CalculateEmployeeWage();
                     break;
                 default:
                     Console.WriteLine("Entered wrong choice");
