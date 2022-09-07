@@ -1,43 +1,39 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace EmployeePayroll
 {
-    internal class Refactor
+    internal class ComputeEmployeeWage
     {
-        public const int IS_FULL_TIME = 2;
-        public const int IS_PART_TIME = 1;
-        public const int EMP_RATE_PER_HOUR = 20;
-        public const int NUM_Of_WORKING_DAYS = 20;
-        public const int MAX_HRS_IN_MONTH = 100;
-
-
-        public static void CalculateEmployeeWagee()
-
+        public const int is_Full_Time = 1;
+        public const int is_Part_Time = 2;
+        public static int ComputeEmployeeWagee(string company, int Emp_Rate_Per_Hour, int Num_Of_Working_Days, int Max_Hrs_In_Month)
         {
+           
             // Variables
             int empHrs = 0;
             int empWage = 0;
             int totalEmpWage = 0;
             int totalEmpHrs = 0;
             int totalWorkingDays = 0;
-            //computation
-            while (totalEmpHrs <= MAX_HRS_IN_MONTH && totalWorkingDays < NUM_Of_WORKING_DAYS)
+
+            while (totalEmpHrs <= Max_Hrs_In_Month && totalWorkingDays < Num_Of_Working_Days)
             {
                 totalWorkingDays++;
                 Random random = new Random();
-                int empCheck = random.Next(1, 3);
+                int empCheck = random.Next(0, 3);
                 switch (empCheck)
                 {
-                    case IS_FULL_TIME:
+                    case is_Full_Time:
                         empHrs = 8;
                         Console.WriteLine("Employee is Full Time");
                         break;
 
-                    case IS_PART_TIME:
+                    case is_Part_Time:
                         empHrs = 4;
                         Console.WriteLine("Employee is Present for Part Time");
                         break;
@@ -48,15 +44,16 @@ namespace EmployeePayroll
                         break;
                 }
                 totalEmpHrs += empHrs;
-                Console.WriteLine("Days:" + totalWorkingDays + "Employee Hours: " + empHrs);
+                Console.WriteLine("Days:" + totalEmpHrs + "Employee Hours: " + totalEmpHrs);
             }
-            totalEmpWage = totalEmpHrs * EMP_RATE_PER_HOUR;
-            Console.WriteLine("Total Employee Wage is: " + totalEmpWage);
-            return;
+            totalEmpWage = totalEmpHrs * Emp_Rate_Per_Hour;
+            Console.WriteLine("Total Employee Wage of Comapny: " + company + " is " + totalEmpWage);
+            return totalEmpWage;
         }
-        public void Main(string[] args)
+         static void ComputeEmployeeWagee()
         {
-            CalculateEmployeeWagee();
+            ComputeEmployeeWagee("DMART", 20, 20, 100);
+            ComputeEmployeeWagee("WIPRO", 20, 20, 100);
         }
     }
 }
